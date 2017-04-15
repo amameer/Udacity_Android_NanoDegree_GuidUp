@@ -6,27 +6,37 @@ package com.misk.amna.guidapp;
 
 public class Tower {
 
-    private int tId;
-    private String tName;
+    private int mID;
+    private String mName;
+    private int mImageResourceId;
 
-    public Tower(int tId, String tName) {
-        this.tId = tId;
-        this.tName = tName;
+    public Tower(int mID, String mName, int mImageResourceId) {
+        this.mID = mID;
+        this.mName = mName;
+        this.mImageResourceId = mImageResourceId;
     }
 
-    public int gettId() {
-        return tId;
+    public int getmImageResourceId() {
+        return mImageResourceId;
     }
 
-    public void settId(int tId) {
-        this.tId = tId;
+    public void setmImageResourceId(int mImageResourceId) {
+        this.mImageResourceId = mImageResourceId;
     }
 
-    public String gettName() {
-        return tName;
+    public int getmID() {
+        return mID;
     }
 
-    public void settName(String tName) {
-        this.tName = tName;
+    public void setmID(int mID) {
+        this.mID = mID;
+    }
+
+    public String getmName() {
+        return mName;
+    }
+
+    public void setmName(String mName) {
+        this.mName = mName;
     }
 }

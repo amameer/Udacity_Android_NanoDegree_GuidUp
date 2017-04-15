@@ -1,15 +1,15 @@
 package com.misk.amna.guidapp;
 
 /**
- * Created by me on 15/04/17.
+ * Created by me on 07/04/17.
  */
 
-public class Mall {
+public class Food {
     private int mID;
     private String mName;
     private int mImageResourceId;
 
-    public Mall(int mID, String mName, int mImageResourceId) {
+    public Food(int mID, String mName, int mImageResourceId) {
         this.mID = mID;
         this.mName = mName;
         this.mImageResourceId = mImageResourceId;
