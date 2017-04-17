@@ -25,24 +25,34 @@ public class MuseumAdapter extends ArrayAdapter<Museum> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
+        Museum currentMuseum = getItem(position);
         View listItemView = convertView;
-        if(listItemView == null) {
+        ViewHolder viewHolder;
+        if (listItemView == null) {
+            viewHolder = new ViewHolder();
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.places2_list_item, parent, false);
-        }
-        Museum currentMuseum = getItem(position);
+            viewHolder.mID = (TextView) listItemView.findViewById(R.id.place_number2);
+            viewHolder.mName = (TextView) listItemView.findViewById(R.id.place_name2);
+            viewHolder.mImage = (ImageView) listItemView.findViewById(R.id.list_item_icon2);
+            viewHolder.mImage.setImageResource(currentMuseum.getmImageResourceId());
+            listItemView.setTag(viewHolder);
+        } else
+            viewHolder = (ViewHolder) listItemView.getTag();
 
-        TextView nameTextView = (TextView) listItemView.findViewById(R.id.place_name2);
-        nameTextView.setText(currentMuseum.getmName());
+        viewHolder.mName.setText(currentMuseum.getmName());
+        viewHolder.mID.setText("" + currentMuseum.getmID());
+        viewHolder.mImage.setImageResource(currentMuseum.getmImageResourceId());
 
-        ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon2);
-        iconView.setImageResource(currentMuseum.getmImageResourceId());
-
-        TextView numberTextView = (TextView) listItemView.findViewById(R.id.place_number2);
-
-        numberTextView.setText(""+currentMuseum.getmID());
 
         return listItemView;
     }
+    static class ViewHolder {
 
+        private TextView mID;
+        private TextView mName;
+        private ImageView mImage;
+
+    }
 }

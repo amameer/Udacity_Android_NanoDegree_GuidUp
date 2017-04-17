@@ -44,21 +44,21 @@ public class PlaceFragment extends Fragment {
         ArrayList<Museum> museums = new ArrayList<Museum>();
         ArrayList<Food> foods = new ArrayList<Food>();
 
-        malls.add(new Mall(1, "Panoramal mall : the best", R.drawable.panorama_mall));
-        malls.add(new Mall(2, "Riyad Gallery : everythings", R.drawable.riyadh_gallery));
-        malls.add(new Mall(3, "Centeria Mall : all the wrld brands", R.drawable.centeria));
+        malls.add(new Mall(1, getString(R.string.Panorama_Mall), R.mipmap.ic_panorama_mall));
+        malls.add(new Mall(2, getString(R.string.Riadh_Gallery), R.mipmap.ic_riyadh_gallery));
+        malls.add(new Mall(3, getString(R.string.Centeria), R.mipmap.ic_centeria));
 
-        towers.add(new Tower(1, "Tv Tower", R.drawable.tv));
-        towers.add(new Tower(2, "Al Faisaliah Tower", R.drawable.faisaliah));
-        towers.add(new Tower(3, "The Kingdom Tower", R.drawable.kingdom));
+        towers.add(new Tower(1, getString(R.string.TV), R.mipmap.ic_tv));
+        towers.add(new Tower(2, getString(R.string.Faisaliah), R.mipmap.ic_faisaliah));
+        towers.add(new Tower(3, getString(R.string.Kingdom), R.mipmap.ic_kingdom));
 
-        museums.add(new Museum(1, "The National Museum", R.drawable.watani));
-        museums.add(new Museum(2, "The Historical Buildings tell Riyadh Story", R.drawable.masmak));
-        museums.add(new Museum(3, "Sager Aljazeerah", R.drawable.air_aviation));
+        museums.add(new Museum(1, getString(R.string.NMuseum), R.mipmap.ic_watani));
+        museums.add(new Museum(2, getString(R.string.Masmak), R.mipmap.ic_masmak));
+        museums.add(new Museum(3, getString(R.string.SaqrAljazeerah), R.mipmap.ic_air_aviation));
 
-        foods.add(new Food(1, "Traditional Foods", R.drawable.najdiah_vally));
-        foods.add(new Food(2, "High Class Retaurant", R.drawable.spazio));
-        foods.add(new Food(3, "The Most popular ", R.drawable.lusin));
+        foods.add(new Food(1, getString(R.string.NajdiahV), R.mipmap.ic_najdiah_vally));
+        foods.add(new Food(2, getString(R.string.spazio), R.mipmap.ic_spazio));
+        foods.add(new Food(3, getString(R.string.lusin), R.mipmap.ic_lusin));
 
         MallAdapter mallAdapter;
         MuseumAdapter museumAdapter;

@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class FoodAdapter extends ArrayAdapter<Food> {
 
 
-
     public FoodAdapter(Activity context, ArrayList<Food> foods) {
 
         super(context, 0, foods);
@@ -27,27 +26,35 @@ public class FoodAdapter extends ArrayAdapter<Food> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        Food currentFood = getItem(position);
         View listItemView = convertView;
-        if(listItemView == null) {
+
+        ViewHolder viewHolder;
+        if (listItemView == null) {
+            viewHolder = new ViewHolder();
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.places_list_item, parent, false);
-        }
+            viewHolder.mID = (TextView) listItemView.findViewById(R.id.place_number);
+            viewHolder.mName = (TextView) listItemView.findViewById(R.id.place_name);
+            viewHolder.mImage = (ImageView) listItemView.findViewById(R.id.list_item_icon);
+            viewHolder.mImage.setImageResource(currentFood.getmImageResourceId());
+            listItemView.setTag(viewHolder);
+        } else
+            viewHolder = (ViewHolder) listItemView.getTag();
 
-        Food currentFood = getItem(position);
+        viewHolder.mName.setText(currentFood.getmName());
+        viewHolder.mID.setText("" + currentFood.getmID());
+        viewHolder.mImage.setImageResource(currentFood.getmImageResourceId());
 
-       TextView nameTextView = (TextView) listItemView.findViewById(R.id.place_name);
-
-        nameTextView.setText(currentFood.getmName());
-
-
-        ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
-        iconView.setImageResource(currentFood.getmImageResourceId());
-
-        TextView numberTextView = (TextView) listItemView.findViewById(R.id.place_number);
-
-        numberTextView.setText(""+currentFood.getmID());
 
         return listItemView;
     }
 
+    static class ViewHolder {
+
+        private TextView mID;
+        private TextView mName;
+        private ImageView mImage;
+
+    }
 }

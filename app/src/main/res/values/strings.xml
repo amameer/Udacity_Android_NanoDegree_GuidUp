@@ -4,4 +4,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ciconDescription">icon</string>
+    <string name="Panorama_Mall">Panoramal mall : the best</string>
+    <string name="Riadh_Gallery">Riyad Gallery : everythings</string>
+    <string name="Centeria">Centeria Mall : all the wrld brands</string>
+    <string name="TV">Tv Tower</string>
+    <string name="Faisaliah">Al Faisaliah Tower</string>
+    <string name="Kingdom">The Kingdom Tower</string>
+    <string name="NMuseum">The National Museum</string>
+    <string name="Masmak">The Historical Buildings tell Riyadh Story</string>
+    <string name="SaqrAljazeerah">Sager Aljazeerah</string>
+    <string name="NajdiahV">Traditional Foods</string>
+    <string name="spazio">High Class Retaurant</string>
+    <string name="lusin">"The Most popular "</string>
 </resources>

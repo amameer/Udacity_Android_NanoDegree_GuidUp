@@ -4,19 +4,19 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="@dimen/activity_horizontal_margin">
+    android:padding="@dimen/default_padding">
 
  <ImageView
         android:id="@+id/list_item_icon"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="@dimen/default_image_width"
+        android:layout_height="@dimen/default_image_height"
      android:contentDescription="@string/ciconDescription" />
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1.2"
         android:orientation="vertical"
-        android:paddingStart="@dimen/activity_horizontal_margin">
+        android:paddingStart="@dimen/default_padding">
 
 
         <TextView

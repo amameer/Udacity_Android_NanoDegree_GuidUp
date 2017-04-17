@@ -26,28 +26,33 @@ public class TowerAdapter extends ArrayAdapter<Tower> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        Tower currentTower = getItem(position);
         View listItemView = convertView;
-        if(listItemView == null) {
+        ViewHolder viewHolder;
+        if (listItemView == null) {
+            viewHolder = new ViewHolder();
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.places_list_item, parent, false);
-        }
+            viewHolder.mID = (TextView) listItemView.findViewById(R.id.place_number);
+            viewHolder.mName = (TextView) listItemView.findViewById(R.id.place_name);
+            viewHolder.mImage = (ImageView) listItemView.findViewById(R.id.list_item_icon);
+            viewHolder.mImage.setImageResource(currentTower.getmImageResourceId());
+            listItemView.setTag(viewHolder);
+        } else
+            viewHolder = (ViewHolder) listItemView.getTag();
+
+        viewHolder.mName.setText(currentTower.getmName());
+        viewHolder.mID.setText("" + currentTower.getmID());
+        viewHolder.mImage.setImageResource(currentTower.getmImageResourceId());
 
 
-        Tower currentTower = getItem(position);
-
-
-        TextView nameTextView = (TextView) listItemView.findViewById(R.id.place_name);
-
-        nameTextView.setText(currentTower.getmName());
-
-
-        ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
-        iconView.setImageResource(currentTower.getmImageResourceId());
-
-        TextView numberTextView = (TextView) listItemView.findViewById(R.id.place_number);
-
-        numberTextView.setText(""+currentTower.getmID());
         return listItemView;
     }
+    static class ViewHolder {
 
+        private TextView mID;
+        private TextView mName;
+        private ImageView mImage;
+
+    }
 }

@@ -26,27 +26,35 @@ public class MallAdapter extends ArrayAdapter<Mall> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View listItemView = convertView;
-        if(listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.places_list_item, parent, false);
-        }
 
         Mall currentMall = getItem(position);
+        View listItemView = convertView;
 
-       TextView nameTextView = (TextView) listItemView.findViewById(R.id.place_name);
+        ViewHolder viewHolder;
+        if (listItemView == null) {
+            viewHolder = new ViewHolder();
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.places_list_item, parent, false);
+            viewHolder.mID = (TextView) listItemView.findViewById(R.id.place_number);
+            viewHolder.mName = (TextView) listItemView.findViewById(R.id.place_name);
+            viewHolder.mImage = (ImageView) listItemView.findViewById(R.id.list_item_icon);
+            viewHolder.mImage.setImageResource(currentMall.getmImageResourceId());
+            listItemView.setTag(viewHolder);
+        } else
+            viewHolder = (ViewHolder) listItemView.getTag();
 
-        nameTextView.setText(currentMall.getmName());
+        viewHolder.mName.setText(currentMall.getmName());
+        viewHolder.mID.setText("" + currentMall.getmID());
+        viewHolder.mImage.setImageResource(currentMall.getmImageResourceId());
 
-
-        ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
-        iconView.setImageResource(currentMall.getmImageResourceId());
-
-        TextView numberTextView = (TextView) listItemView.findViewById(R.id.place_number);
-
-        numberTextView.setText(""+currentMall.getmID());
 
         return listItemView;
     }
+    static class ViewHolder {
 
+        private TextView mID;
+        private TextView mName;
+        private ImageView mImage;
+
+    }
 }
